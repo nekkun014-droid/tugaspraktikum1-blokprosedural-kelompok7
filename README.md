@@ -10,7 +10,7 @@ Repository ini berisi tugas praktikum pertama untuk mata kuliah **Blok Prosedura
 |----|------|-----|
 | 1 | Farida Nur Intan | IK2411013 |
 | 2 | Thizya Tri Firma | IK2411057 |
-| 3 | Andi Dewa Firdaus | IK2411027 |
+| 3 | Andi Dewa Firdaus | IK2411037 |
 
 ## 📁 Struktur File
 
@@ -23,27 +23,36 @@ Repository ini berisi tugas praktikum pertama untuk mata kuliah **Blok Prosedura
 
 ## 🔧 Penjelasan Tugas_Praktikum.(02)sql.sql
 
-File ini berisi 4 bagian utama stored procedure:
+File ini berisi 5 stored procedure utama:
 
 ### Bagian A - Identitas Mahasiswa
 Menampilkan identitas mahasiswa dengan informasi:
-- Nama lengkap
-- NIM
-- Program Studi: **Informatika**
-- Kampus: **Mega Buana Palopo**
-- Semester masing-masing mahasiswa
+- **Farida Nur Intan** (IK2411013) - Program Studi Informatika - semester 4
+- **Thizya Tri Firma** (IK2411057) - Program Studi Informatika - semester 3
+- **Andi Dewa Firdaus** (IK2411037) - Program Studi Informatika - semester 5
+
+Kampus: **Mega Buana Palopo**
 
 ### Bagian B - Status Validasi
 Menampilkan data validasi mahasiswa:
-| Nama | Status | Beban | Performa |
-|------|--------|-------|----------|
+
+| Nama | Status | Beban SKS | Performa |
+|------|--------|-----------|----------|
 | Farida Nur Intan | Valid | Padat | Sangat Baik |
 | Thizya Tri Firma | Valid | Sedang | Baik |
 | Andi Dewa Firdaus | Tidak Valid | Padat | Perlu Pembinaan |
 
 ### Bagian C - Validasi Data Lengkap
-Prosedur validasi dengan logika:
-- **Status KRS**: Valid jika UKT lunas, semester aktif, dan SKS > 0
+Data mahasiswa yang divalidasi:
+
+| Nama | NIM | Semester | Prodi | SKS | IPK | UKT |
+|------|-----|----------|-------|-----|-----|-----|
+| Farida Nur Intan | IK2411013 | 4 | Informatika | 21 | 3.80 | BELUM |
+| Thizya | IK2411057 | 4 | Informatika | 18 | 3.40 | LUNAS |
+| Andi | IK2411037 | 4 | Informatika | 10 | 2.40 | BELUM |
+
+**Logika Validasi:**
+- **Status KRS**: Valid jika UKT='LUNAS' DAN semester>0 DAN SKS>0
 - **Kategori Beban SKS**:
   - ≤ 12 SKS = Ringan
   - 13-18 SKS = Sedang
@@ -56,9 +65,23 @@ Prosedur validasi dengan logika:
 
 ### Bagian D - Pemeringkatan IPK
 Menampilkan ranking mahasiswa berdasarkan IPK:
-1. Farida Nur Intan - IPK 3.90
-2. Thizya Tri Firma - IPK 3.80
-3. Andi Dewa Firdaus - IPK 3.40
+
+| Rank | Nama | NIM | IPK |
+|------|------|-----|-----|
+| 1 | Farida Nur Intan | IK2411013 | 3.90 |
+| 2 | Thizya | IK2411057 | 3.80 |
+| 3 | Andi | IK2411037 | 3.40 |
+
+**Mahasiswa Terbaik**: Farida Nur Intan (IPK 3.90)
+
+### Procedure Tambahan - validasi_data_mahasiswa_3
+Prosedur tambahan dengan data berbeda:
+
+| Nama | NIM | Semester | SKS | IPK | UKT |
+|------|-----|----------|-----|-----|-----|
+| Andi Dewa | 2310112345 | 3 | 22 | 3.45 | Lunas |
+| Thizya Tri | 2310112346 | 2 | 18 | 2.40 | Belum Lunas |
+| Farida | 2310112347 | 4 | 24 | 3.80 | Lunas |
 
 ## 🚀 Cara Menjalankan
 
@@ -78,16 +101,20 @@ CALL bagian_c();
 
 -- Untuk Bagian D
 CALL bagian_d();
+
+-- Untuk Procedure Tambahan
+CALL validasi_data_mahasiswa_3();
 ```
 
 ## 📚 Konsep yang Dipelajari
 
-- ✅ DECLARE variabel dalam MySQL
-- ✅ IF condition (single & nested)
-- ✅ UNION ALL untuk menggabungkan hasil
-- ✅ CONCAT untuk manipulasi string
-- ✅ Stored Procedure creation
-- ✅ DELIMITER usage dalam procedure
+- ✅ `DECLARE` - Deklarasi variabel dalam MySQL
+- ✅ `IF` condition - Kondisi tunggal dan nested
+- ✅ `UNION ALL` - Menggabungkan hasil dari multiple SELECT
+- ✅ `CONCAT` - Manipulasi string
+- ✅ `CREATE PROCEDURE` - Membuat stored procedure
+- ✅ `DELIMITER` - Mengubah delimiter untuk procedure
+- ✅ `SET` - Menetapkan nilai ke variabel
 
 ---
 *Dibuat untuk Tugas Praktikum Blok Prosedural - Semester 4*
