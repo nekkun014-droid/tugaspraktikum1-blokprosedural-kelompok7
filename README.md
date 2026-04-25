@@ -1,10 +1,10 @@
-# Tugas Praktikum 1 - Blok Prosedural Kelompok 9
+# Tugas Praktikum 1 - Blok Prosedural Kelompok 7
 
 ## 📋 Deskripsi
 
 Repository ini berisi tugas praktikum pertama untuk mata kuliah **Blok Prosedural** yang berfokus pada penggunaan **Stored Procedure** dalam MySQL.
 
-## 👥 Anggota Kelompok 9
+## 👥 Anggota Kelompok 7
 
 | No | Nama | NIM |
 |----|------|-----|
